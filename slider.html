@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style media="screen">
+      #slider {
+        position: relative;
+        width: 340px !important;
+        height: 550px;
+        margin: 10px auto;
+        font-family: "Helvetica Neue", sans-serif;
+        perspective: 1400px;
+        transform-style: preserve-3d;
+      }
+
+      input[type="radio"] {
+        position: relative;
+        top: 108%;
+        left: 50%;
+        width: 18px;
+        height: 18px;
+        margin: 0 15px 0 0;
+        opacity: 0.4;
+        transform: translateX(-83px);
+        cursor: pointer;
+      }
+
+      input[type="radio"]:nth-child(6) {
+        margin-right: 0px;
+      }
+
+      input[type="radio"]:checked {
+        opacity: 1;
+      }
+
+      #slider label,
+      #slider label img {
+		position: absolute;
+		width: 260px ;
+		left: -40px;
+		top: 15px;
+		color: white;
+		font-size: 70px;
+		font-weight: bold;
+		border-radius: 3px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 500px;
+		transition: transform 400ms ease;
+      }
+
+      /* Slider Functionality */
+
+      /* Active Slide */
+      #s1:checked ~ #slide1,
+      #s2:checked ~ #slide2,
+      #s3:checked ~ #slide3,
+      #s4:checked ~ #slide4,
+      #s5:checked ~ #slide5,
+      #s6:checked ~ #slide6{       
+		transform: translate3d(50%, 0, 0px);
+			
+      }
+
+      /* Next Slide */
+      #s1:checked ~ #slide2,
+      #s2:checked ~ #slide3,
+      #s3:checked ~ #slide4,
+      #s4:checked ~ #slide5,
+      #s5:checked ~ #slide6,
+      #s6:checked ~ #slide1
+      {
+			transform: translate3d(110%, 0, -90px); 
+      }
+
+      /* Next to Next Slide */
+      #s1:checked ~ #slide3,
+      #s2:checked ~ #slide4,
+      #s3:checked ~ #slide5,
+      #s4:checked ~ #slide6,
+      #s5:checked ~ #slide1,
+      #s6:checked ~ #slide2
+      {
+        transform: translate3d(140%, 0, -160px); 
+      }
+	   /* Next to Next Slide */
+      #s1:checked ~ #slide4,
+      #s2:checked ~ #slide5,
+      #s3:checked ~ #slide6,
+      #s4:checked ~ #slide1,
+      #s5:checked ~ #slide2,
+      #s6:checked ~ #slide3
+     {
+        transform: translate3d(180%, 0, -250px); 
+      }
+
+/* Previous to Previous Slide */
+      #s1:checked ~ #slide5,
+      #s2:checked ~ #slide6,
+      #s3:checked ~ #slide1,
+      #s4:checked ~ #slide2,
+      #s5:checked ~ #slide3,
+      #s6:checked ~ #slide4
+     {
+        transform: translate3d(-40%, 0, -350px); 
+      }
+      /* Previous to Previous Slide */
+      #s1:checked ~ #slide6,
+      #s2:checked ~ #slide1,
+      #s3:checked ~ #slide2,
+      #s4:checked ~ #slide3,
+      #s5:checked ~ #slide4,
+      #s6:checked ~ #slide5
+      {
+        transform: translate3d(-50%, 0, -160px); 
+      }
+
+      /* Previous Slide */
+      #s1:checked ~ #slide6,
+      #s2:checked ~ #slide1,
+      #s3:checked ~ #slide2,
+      #s4:checked ~ #slide3,
+      #s5:checked ~ #slide4,
+      #s6:checked ~ #slide5
+      {
+        transform: translate3d(20%, 0, -90px); 
+      }
+	  
+      #s1:checked ~ #slide1 img, 
+      #s2:checked ~ #slide2 img, 
+      #s3:checked ~ #slide3 img, 
+      #s4:checked ~ #slide4 img, 
+      #s5:checked ~ #slide5 img,
+      #s6:checked ~ #slide6 img{
+			width: 260px ;
+			background-position: center center;
+			left: 0px;
+			height: 500px;  
+			padding: 7px;
+			background-size: 100%;
+			background-repeat: no-repeat;
+			top: 20px;
+		}
+
+@media only screen and (min-width:320px)  and (max-width:767px) {
+#s1:checked ~ #slide1, #s2:checked ~ #slide2, #s3:checked ~ #slide3, #s4:checked ~ #slide4, #s5:checked ~ #slide5, #s6:checked ~ #slide6 {
+    transform: translate3d(65%, 0, 0px);
+}
+
+#s1:checked ~ #slide2, #s2:checked ~ #slide3, #s3:checked ~ #slide4, #s4:checked ~ #slide5, #s5:checked ~ #slide6, #s6:checked ~ #slide1 {
+    transform: translate3d(120%, 0, -90px);
+}
+
+#s1:checked ~ #slide3, #s2:checked ~ #slide4, #s3:checked ~ #slide5, #s4:checked ~ #slide6, #s5:checked ~ #slide1, #s6:checked ~ #slide2 {
+    transform: translate3d(165%, 0, -160px);
+}
+
+#s1:checked ~ #slide4, #s2:checked ~ #slide5, #s3:checked ~ #slide6, #s4:checked ~ #slide1, #s5:checked ~ #slide2, #s6:checked ~ #slide3 {
+    transform: translate3d(220%, 0, -240px);
+}
+
+#s1:checked ~ #slide5, #s2:checked ~ #slide6, #s3:checked ~ #slide1, #s4:checked ~ #slide2, #s5:checked ~ #slide3, #s6:checked ~ #slide4 {
+    transform: translate3d(45%, 0, -80px);
+}
+
+#s1:checked ~ #slide6, #s2:checked ~ #slide1, #s3:checked ~ #slide2, #s4:checked ~ #slide3, #s5:checked ~ #slide4, #s6:checked ~ #slide5 {
+    transform: translate3d(-2%, 0, -135px);
+}
+}
+
+@media screen and (min-width: 400px){
+	#s1:checked ~ #slide3, #s2:checked ~ #slide4, #s3:checked ~ #slide5, #s4:checked ~ #slide6, #s5:checked ~ #slide1, #s6:checked ~ #slide2 {
+		transform: translate3d(165%, 0, -140px);
+	}
+	#s1:checked ~ #slide4, #s2:checked ~ #slide5, #s3:checked ~ #slide6, #s4:checked ~ #slide1, #s5:checked ~ #slide2, #s6:checked ~ #slide3 {
+		transform: translate3d(230%, 0, -230px);
+	}
+}
+
+	
+     .buttons button{
+		color: #333 !important;
+        border: 0px !important;
+        box-shadow: unset;
+        width: fit-content;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 15px;
+        margin: 0 10px;
+        height: 30px;
+        background-color: transparent !important;
+        border-color: transparent !important;
+     }
+ .buttons button:hover, .buttons button:focus{
+		color: #333;
+		background-color: transparent;
+		color: #333 !important;
+        border: 0px !important;
+		border-color: transparent !important;
+}
+ </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<div class="elementor-widget-container">
+
+ 
+    <section id="slider" class="slider-mj">
+	  <input type="radio" class="first" name="slider" checked="" id="s1" data-id="1">
+      <input type="radio" name="slider" id="s2" data-id="2">
+      <input type="radio" name="slider" id="s3" data-id="3">
+      <input type="radio" name="slider" id="s4" data-id="4">
+      <input type="radio" name="slider" id="s5" data-id="5">
+      <input type="radio" class="last" name="slider" id="s6" data-id="6">
+     
+      <label for="s1" id="slide1"><img src="https://i0.wp.com/catchuthere.com/wp-content/uploads/2022/04/1-1.png?w=800&amp;ssl=1" alt="" width="246" height="486"></label>
+      <label for="s2" id="slide2"><img src="https://i0.wp.com/catchuthere.com/wp-content/uploads/2022/04/2-1.png?w=800&amp;ssl=1" alt="" width="260" height="500"></label>
+      <label for="s3" id="slide3"><img src="https://i0.wp.com/catchuthere.com/wp-content/uploads/2022/04/3-1.png?w=800&amp;ssl=1" alt="" width="260" height="500"></label>
+      <label for="s4" id="slide4"><img src="https://i0.wp.com/catchuthere.com/wp-content/uploads/2022/04/4-1.png?w=800&amp;ssl=1" alt="" width="260" height="500"></label>
+      <label for="s5" id="slide5"><img src="https://i0.wp.com/catchuthere.com/wp-content/uploads/2022/04/5-1.png?w=800&amp;ssl=1" alt="" width="260" height="500"></label>
+      <label for="s6" id="slide6"><img src="https://i0.wp.com/catchuthere.com/wp-content/uploads/2022/04/6-1.png?w=800&amp;ssl=1" alt="" width="260" height="500"></label>
+     
+    </section>
+  		
+
+ 
+  <div class="buttons">
+    <button id="prev">← Previous</button>
+    <button id="next">Next →</button>
+    </div>
+    <script>
+        jQuery(document).ready(function(){
+		var textid = 'slider_text_';
+            jQuery('.first').prop('checked',true);
+			jQuery('#slider_text_1').css('display','block');
+            jQuery('#next').click(function(){
+			jQuery('.slider_text').css('display','none');
+              if(!jQuery('[name="slider"]:checked').hasClass('last')){
+                let id = parseInt(jQuery('[name="slider"]:checked').attr('data-id'))+1;
+                jQuery('#s'+id).prop('checked',true);
+				
+				jQuery('#'+textid+id).css('display','block');
+                console.log('selected next');
+              }else{
+                jQuery('#s1').prop('checked',true);
+				jQuery('#slider_text_1').css('display','block');
+              }             
+            })
+            jQuery('#prev').click(function(){
+			jQuery('.slider_text').css('display','none');
+              if(!jQuery('[name="slider"]:checked').hasClass('first')){
+                let id = parseInt(jQuery('[name="slider"]:checked').attr('data-id'))-1;
+                jQuery('#s'+id).prop('checked',true);					
+				jQuery('#'+textid+id).css('display','block');
+                console.log('selected Previous');
+              }else{
+                jQuery('#s6').prop('checked',true);
+				jQuery('#slider_text_6').css('display','block');
+              }             
+            })
+        })
+        </script>
+</div>
+</body>
+</html>
